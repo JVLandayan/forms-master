@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 function Registration(){
 
-    const [entry, setEntry] = useState({email:"", password:"", confirmpassword:""})
+    const [entry, setEntry] = useState({email:"", password:"", confirmpassword:"", firstname:"", lastname:"", gender:""})
 
     const onChange = (event) => {
         const value = event.target.value;
@@ -13,7 +13,7 @@ function Registration(){
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(entry)
+        alert(`Registered Successfully`)
     }
     //Checks if both password and confirm password is same
 
@@ -29,8 +29,49 @@ function Registration(){
 						</div>
 
 						<div className="flex flex-col justify-center md:justify-start my-auto pt-8 md:pt-0 px-8 md:px-24 lg:px-32">
-							<p className="text-center text-3xl">Join Us.</p>
+							<p className="text-center text-3xl">Register Now</p>
 							<form className="flex flex-col pt-3 md:pt-8" onSubmit={handleSubmit}>
+								<div className="flex flex-col pt-4">
+									<label htmlFor="firstname" className="text-lg">
+										First Name
+									</label>
+									<input
+										type="firstname"
+										pattern="/^[a-z ,.'-]+$/i"
+										id="firstname"
+										name="firstname"
+										placeholder="Juan"
+										onChange={onChange}
+										className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline"
+									/>
+								</div>
+								<div className="flex flex-col pt-4">
+									<label htmlFor="lastname" className="text-lg">
+										Last Name
+									</label>
+									<input
+										type="lastname"
+										pattern="/^[a-z ,.'-]+$/i"
+										id="lastname"
+										name="lastname"
+										placeholder="Juanny"
+										onChange={onChange}
+										className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline"
+									/>
+								</div>
+								<div className="flex flex-col pt-4">
+									<label htmlFor="gender" className="text-lg">
+										Gender
+									</label>
+									<input
+										type="gender"
+										id="gender"
+										name="gender"
+										onChange={onChange}
+										placeholder="Male"
+										className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline"
+									/>
+								</div>
 								<div className="flex flex-col pt-4">
 									<label htmlFor="email" className="text-lg">
 										Email
